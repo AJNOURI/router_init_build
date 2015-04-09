@@ -1,0 +1,15 @@
+{% block aaa  %}
+aaa new-model
+aaa authentication login default local
+username {{ lst[0]['login'] }} privilege 15 password 0 {{ lst[0]['password'] }}
+!
+line vty 0 4
+ no exec-timeout
+ privilege level 15
+ login authentication default
+ transport input telnet ssh
+!
+line con 0
+no exec-timeout
+login authentication default
+{% endblock %}

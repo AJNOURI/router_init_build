@@ -1,0 +1,8 @@
+{% block ssh  %}
+hostname {{ lst[0]['hostname'] }}
+ip domain-name {{ lst[0]['domain'] }}
+!
+crypto key generate rsa general-keys modulus 2048
+ip ssh version 2
+ip ssh rsa keypair-name {{ lst[0]['hostname'] }}.{{ lst[0]['domain'] }}
+{% endblock %}

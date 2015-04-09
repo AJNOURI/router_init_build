@@ -1,0 +1,39 @@
+!
+{% include "aaa.jj2" %}
+!
+no ip domain-lookup
+no service config
+!
+ip http server
+ip http authentication local
+ip http secure-server
+!
+logging buffered 1000000
+service timestamps log datetime msec
+service timestamps debug datetime msec
+terminal exec prompt timestamp
+!
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+!
+{% include "ssh.jj2" %}
+!
+!
+!
+no ip icmp rate-limit unreachable
+!
+!         
+!
+!
+ip cef
+no ip domain-lookup
+!
+!
+ip tcp synwait-time 5
+!
+!
+!
+{% include "alias.jj2" %}
+!
